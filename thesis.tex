@@ -18,22 +18,26 @@
 % Basic definitions, to be adjusted individually
 \newcommand{\authornamefirst}{Firstname}
 \newcommand{\authornamelast}{Lastname}
-\newcommand{\matrikelnummer}{000 000}
+\newcommand{\matrikelnummer}{00000}
 \newcommand{\authorhomestreet}{(Your street) (your house number)}
-\newcommand{\authorpostalcodecity}{(your postcode), (your city)}
+\newcommand{\authorpostalcodecity}{(your post code), (your city)}
 
-\newcommand{\worktitle}{Your title: Please take a look at the Requirements and Expectations file}
+\newcommand{\worktitle}{Your super cool title: Please take a look at the Requirements and Expectations file}
 
 \newcommand{\thesistype}{Master's Thesis}
+% \newcommand{\thesistype}{Bachelor's Thesis}
+% \newcommand{\thesistype}{Masterarbeit} % German
+% \newcommand{\thesistype}{Bachelorarbeit} % German
 
 \newcommand{\courseofstudies}{Computer Science}
+% \newcommand{\courseofstudies}{Informatik} % German
 
 \newcommand{\thesisdate}{\today}   %% in ISO 8601 format
 
 \newcommand{\thesisprof}{Prof. Dr. Stefan Katzenbeisser}
 \newcommand{\thesisproftwo}{The second supervisor (only for master's thesis, must be a professor)}
 \newcommand{\chair}{\mbox{Chair of Computer Engineering}}
-
+% \newcommand{\chair}{\mbox{Lehrstuhl für Technische Informatik}} % German
 \newcommand{\secondchair}{The chair of your second advisor professor}
 
 \newcommand{\advisor}{Your Advisor (usually not the professor)}
@@ -42,15 +46,17 @@
 \newcommand{\contactprofone}{
 \thesisprof \\
 \chair \\
-University of Passau \\
+University of Passau \\ % German: Universität Passau \\
 Email:~{\small \href{mailto:stefan.katzenbeisser@uni-passau.de}{\texttt{stefan.katzenbeisser@uni-passau.de}}}  \\
 Web:~{\small
 \url{https://www.fim.uni-passau.de/en/computer-engineering/}}\\}
+% \url{https://www.fim.uni-passau.de/technische-informatik/}}\\} % German
 
+% Only for master's thesis. Just comment these lines if you don't have or need a second supervisor.
 \newcommand{\contactproftwo}{
 \thesisproftwo \\
 \secondchair \\
-University of Passau \\
+University of Passau \\ % German: Universität Passau \\
 Email:~{\small \href{mailto:<second.prof>@uni-passau.de}{\texttt{<second.prof>@uni-passau.de}}}  \\
 Web:~{\small
 \url{http://www.uni-passau.de/}}\\}
@@ -92,10 +98,6 @@ Web:~{\small
 \usepackage{graphicx}
 % Include PDF links
 \usepackage{listings}
-% Algorithms
-\usepackage[ruled]{algorithm2e}
-\SetKwComment{Comment}{/* }{ */}
-
 \usepackage{float}
 \usepackage{pgfplots}
 \usepackage{multirow}
@@ -150,6 +152,9 @@ hidelinks
 % English...
 \usepackage[english]{babel}
 \setlang{english}
+% ... or German?
+%\usepackage[ngerman]{babel}
+%\setlang{ngerman}
 
 \usepackage[iso,english]{isodate} % Don't change the language here!
 
@@ -200,12 +205,15 @@ hidelinks
 \begin{center}
 \begin{tabular}{lr}
 \includegraphics[width=6.5cm]{img/logouni_en.png}
+% \includegraphics[width=6.5cm]{img/logouni.png} % German
 \end{tabular}
 
 \vspace{3cm}
 \Large University of Passau
+% \Large Universität Passau % German
 \\
 \Large Faculty of Computer Science and Mathematics
+% \Large Fakultät für Informatik und Mathematik % German
 \\
 \vspace{0.3cm}
 \Large {\chair }
@@ -218,6 +226,7 @@ hidelinks
 \vspace{2.5cm}
 
 \begin{center}
+        % Master's thesis, Bachelor's thesis, Programming project
         {\Large \thesistype\\ in\\ \courseofstudies\\} 
 \end{center}
 
@@ -241,9 +250,9 @@ hidelinks
 
 Date:       & \thesisdate %%(\LaTeX{}$2_\epsilon$ run \today) % German: Datum:
 \smallskip \\
-Supervisors:   & \thesisprof \\
+Supervisors:   & \thesisprof \\ % German: Prüfer:
 	& \thesisproftwo \\
-Advisor: & \advisor \\
+Advisor: & \advisor \\ % German: Betreuer:
 \end{tabular}}
 } \cleardoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -259,6 +268,22 @@ Advisor: & \advisor \\
 % Table of contents
 \tableofcontents
 
+% Main body of thesis
+\mainmatter
+\input{chapters/1_introduction}
+\input{chapters/2_background}
+\input{chapters/3_related}
+\input{chapters/4_design}
+\input{chapters/5_implementation}
+\input{chapters/6_evaluation}
+\input{chapters/7_conclusions}
+
+\begin{appendices}
+\input{chapters/A_appendix}
+\end{appendices}
+
+
+
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
@@ -269,20 +294,7 @@ Advisor: & \advisor \\
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 
-%\cleardoublepage
-%\phantomsection
-%\addcontentsline{toc}{chapter}{\listlistingname}
-%\listoflistings
 
-% Main body of thesis
-\mainmatter
-\input{chapters/1_introduction}
-\input{chapters/2_background}
-\input{chapters/3_related-work}
-\input{chapters/4_methodology}
-\input{chapters/5_results}
-\input{chapters/6_discussion}
-\input{chapters/7_conclusions}
 
 % References (Literaturverzeichnis):
 \cleardoublepage
@@ -293,17 +305,6 @@ Advisor: & \advisor \\
 \bibliographystyle{unsrtnat}
 % b) The File
 \bibliography{Bibliography}
-
-\begin{appendices}
-\input{chapters/A_appendix}
-\input{chapters/B_code}
-\input{chapters/C_math}
-\input{chapters/D_dataset}
-\input{chapters/E_content-of-cd}
-\end{appendices}
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
